@@ -1,0 +1,9 @@
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let hero of heroes" [routerLink]="['/detail', hero.id]" class="col-1-4">
+    <!-- The routerLink here is using the binding syntax because this is a dynamic path (i.e. the 'id' in the path changes accordingly -->
+    <div class="module hero">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </a>
+</div>
