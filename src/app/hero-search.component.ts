@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
 
-import { Observable }        from 'rxjs/Observable';
+// Most RxJS operators are included in Angular's base Observable
+import { Observable }        from 'rxjs/Observable'; // <-- Observable class
 import { Subject }           from 'rxjs/Subject';
 
 // Observable class extensions
 import 'rxjs/add/observable/of';
 
 // Observable operators
+// The import statement does not have braces {...} and the operator symbols because it will run the library's script and add the operator to the Observable class
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+
 import { HeroSearchService } from './hero-search.service';
 import { Hero } from './hero';
 
@@ -24,8 +27,8 @@ export class HeroSearchComponent implements OnInit {
   heroes: Observable<Hero[]>; // heroes is an observable of Hero arrays, not just a normal Heroes array
   private searchTerms = new Subject<string>();
   /* 
-    Subject is a producer of an observable event stream 
-    searchTerms produces an Observable of strings
+    - 'Subject' is a producer of an observable event stream 
+    - searchTerms produces an Observable of strings
   */
 
   constructor(

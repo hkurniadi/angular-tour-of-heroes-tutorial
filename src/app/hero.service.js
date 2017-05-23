@@ -49,6 +49,7 @@ var HeroService = (function () {
             .then(function (response) { return response.json().data; }) // the data is a single object
             .catch(this.handleError);
     };
+    // Update (PUT) the exisiting hero object
     HeroService.prototype.update = function (hero) {
         var url = this.heroesUrl + "/" + hero.id;
         return this.http.put(url, JSON.stringify(hero), { headers: this.headers })
@@ -56,12 +57,14 @@ var HeroService = (function () {
             .then(function () { return hero; })
             .catch(this.handleError);
     };
+    // Create (POST) a new hero by its new name
     HeroService.prototype.create = function (name) {
         return this.http.post(this.heroesUrl, JSON.stringify({ name: name }), { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);
     };
+    // Delete (DELETE) hero by its ID
     HeroService.prototype.delete = function (id) {
         var url = this.heroesUrl + "/" + id;
         return this.http.delete(url, { headers: this.headers })

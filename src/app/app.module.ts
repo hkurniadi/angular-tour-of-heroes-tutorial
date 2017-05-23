@@ -14,6 +14,7 @@ import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from "./hero-detail.component";
 import { HeroService } from './hero.service';
 import { DashboardComponent } from './dashboard.component';
+import { HeroSearchComponent } from './hero-search.component';
 
 @NgModule({
   imports: [ // <-- takes in necessary dependencies (i.e. other modules)
@@ -27,7 +28,8 @@ import { DashboardComponent } from './dashboard.component';
     AppComponent,
     DashboardComponent,
     HeroesComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    HeroSearchComponent
   ],
   providers: [ // <-- to include custom services into the global service collection
     HeroService // <-- this metadata tells Angular to create a singleton (since put in the app.module) instance of the service (i.e. HeroService) when it runs the NgModule, so that the service is available to all components

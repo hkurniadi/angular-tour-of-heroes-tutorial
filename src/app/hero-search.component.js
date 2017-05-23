@@ -10,19 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var Observable_1 = require("rxjs/Observable");
+// Most RxJS operators are included in Angular's base Observable
+var Observable_1 = require("rxjs/Observable"); // <-- Observable class
 var Subject_1 = require("rxjs/Subject");
 // Observable class extensions
 require("rxjs/add/observable/of");
 // Observable operators
+// The import statement does not have braces {...} and the operator symbols because it will run the library's script and add the operator to the Observable class
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/debounceTime");
 require("rxjs/add/operator/distinctUntilChanged");
 var hero_search_service_1 = require("./hero-search.service");
 var HeroSearchComponent = (function () {
     /*
-      Subject is a producer of an observable event stream
-      searchTerms produces an Observable of strings
+      - 'Subject' is a producer of an observable event stream
+      - searchTerms produces an Observable of strings
     */
     function HeroSearchComponent(heroSearchService, router) {
         this.heroSearchService = heroSearchService;

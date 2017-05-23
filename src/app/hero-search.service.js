@@ -17,7 +17,7 @@ var HeroSearchService = (function () {
     }
     HeroSearchService.prototype.search = function (term) {
         return this.http.get("app/heroes/?name=" + term)
-            .map(function (response) { return response.json().data; }); // map() is used to extract heroes from the response data
+            .map(function (response) { return response.json().data; }); // map() is used to extract heroes from the response data, and 'as Hero[]' will type cast the returned data into a Hero-array type
     };
     return HeroSearchService;
 }());
